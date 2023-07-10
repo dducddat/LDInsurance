@@ -1,0 +1,90 @@
+﻿@model LDInsurance.Models.InsuranceRegistration
+
+@{
+    ViewData["Title"] = "Register";
+    Dictionary<int, int> priceList = ViewBag.PriceList as Dictionary<int, int>;
+}
+
+<div class="container" style="height:610px">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Register</h4>
+            </div>
+
+            <div class="modal-body">
+
+
+                <form asp-action="Register">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            Vehicle
+                            <div class="input-group">
+                                <select asp-for="VehicleID" class="form-control" asp-items="ViewBag.VehicleID"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            Insurance
+                            <div class="input-group">
+                                <select asp-for="InsuranceID" class="form-control" asp-items="ViewBag.InsuranceID"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="input-group">
+                                StartDate: @DateTime.Now
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="input-group">
+                                EndDate: @DateTime.Now.AddDays(365)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <label asp-for="Price" class="control-label"></label>
+                            <div class="input-group">
+                                <input asp-for="Price" class="form-control" readonly />
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <input type="submit" value="Enter" class="btn btn-primary" />
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var lst = @Html.Raw(Json.Serialize(priceList));
+
+            var id = $("#InsuranceID").val();
+            $("#Price").val(lst[id]);
+
+            $("#InsuranceID").change(function () {
+                var id = $(this).val();
+                $("#Price").val(lst[id]);
+            });
+        });
+    </script>
+}
+

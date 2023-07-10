@@ -1,0 +1,23 @@
+﻿<nav class="navbar navbar-expand-xl navbar-light bg-light">
+    <!--..................Menu.....................-->
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item pr-5"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" style="color:000055"><i class="fa fa-home"></i> Home</a></li>
+            <li class="nav-item dropdown pr-5">
+                <a class="nav-link dropdown-toggle" href="#" id="mydropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:000055">Insurance</a>
+                <div class="dropdown-menu" style="background-color:white" aria-labelledby="mydropdown">
+                    <a id="hover" class="dropdown-item" href="./Products/Cabinets/Cabinets.html" style="color:000055;"><i class="fa fa-car"></i> Car Insurances</a>
+                    <a id="hover" class="dropdown-item" href="./Products/Lockers/Lockers.html" style="color:000055"><i class="fa fa-motorcycle"></i> Motorcycle Insurance</a>
+                </div>
+            </li>
+            <li class="nav-item pr-5"><a class="nav-link" href="./Home.html" style="color:000055"><i class="fa fa-sitemap"></i> Sitemap</a></li>
+            <li class="nav-item pr-5"><a class="nav-link" href="./Home.html" style="color:000055"><i class="fa fa-comment"></i> Testimonials</a></li>
+            <li class="nav-item pr-5"><a class="nav-link" href="./Other/Contact.html" style="color:000055"><i class="fa fa-building"></i> Contact Us</a></li>
+        </ul>
+        <form class="form-inline ml-auto">
+            <button class="btn" type="button">
+                <a asp-area="" asp-controller="Accounts" asp-action="Index"></abbr><i class="fa fa-user-circle" style="color:000055; font-size: 30px;"></i></a>
+            </button>
+        </form>
+    </div>
+</nav>

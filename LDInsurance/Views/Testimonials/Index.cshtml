@@ -1,0 +1,33 @@
+﻿@model IEnumerable<LDInsurance.Models.Testimonial>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div style="float:right">
+        <a class="btn btn-primary" style="background-color: greenyellow; border-color:greenyellow; color:green" asp-action="Say"><i class="fa fa-comment"></i></a>
+    </div>
+    <div class="container" style=" padding-top: 5px">
+        <div class="card-columns">
+            @foreach (var item in Model)
+            {
+                <div class="card">
+                    <div class="card-header" style="background-color: greenyellow; color: green"><h3>@Html.DisplayFor(modelItem => item.Account.Username)</h3></div>
+                    <div class="card-body">
+                        <p style="font-size:15px; font-family: Comic Sans MS , Lucida Sans Unicode , sans-serif">
+                            <b>@Html.DisplayFor(modelItem => item.Account.Name)</b>
+                        </p>
+                        <p style="font-size:15px; font-family: Comic Sans MS , Lucida Sans Unicode , sans-serif">
+                            @Html.DisplayFor(modelItem => item.Content)
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <p style="font-size:10px; font-family: Comic Sans MS , Lucida Sans Unicode , sans-serif">
+                            Date: @Html.DisplayFor(modelItem => item.Date)
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <br />

@@ -1,0 +1,108 @@
+﻿@model LDInsurance.Models.Account
+
+
+@{
+    ViewData["Title"] = "Sitemap";
+}
+
+<div class="container" style="height:610px">
+    <div class="inside-article">
+        <div class="row">
+            <div class="col-6" style="font-size:20px">
+                <header class="entry-header">
+                    <h1 class="entry-title" itemprop="headline">Account</h1>
+                </header>
+
+                <div class="entry-content" itemprop="text">
+                    <ul>
+                        <li>
+                            <a asp-controller="Accounts" asp-action="Login" class="aioseop-link">Login</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Accounts" asp-action="Register" class="aioseop-link">Register</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Accounts" asp-action="Index" asp-route-id="" class="aioseop-link">Information</a>
+                            <ul>
+                                <li>
+                                    <a asp-controller="Accounts" asp-action="Edit" asp-route-id="" class="aioseop-link">Edit</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Accounts" asp-action="ChangePass" asp-route-id="" class="aioseop-link">Change password</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-controller="Vehicles" asp-action="Index" asp-route-id="" class="aioseop-link">Vehicles</a>
+                            <ul>
+                                <li>
+                                    <a asp-controller="Vehicles" asp-action="Register" asp-route-id="" class="aioseop-link">Vehicle registration</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-controller="Reports" asp-action="Index" asp-route-id="" class="aioseop-link">Reports</a>
+                            <ul>
+                                <li>
+                                    <a asp-controller="Reports" asp-action="Write" asp-route-id="" class="aioseop-link">Write a report</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-controller="InsuranceRegistrations" asp-action="Index" asp-route-id="" class="aioseop-link">Insurances</a>
+                        </li>
+                        <li>
+                            <a asp-controller="TransactionHistories" asp-action="Index" asp-route-id="" class="aioseop-link">Transaction histories</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-6" style="font-size:20px">
+                <header class="entry-header">
+                    <h1 class="entry-title" itemprop="headline">Insurances</h1>
+                </header>
+
+                <div class="entry-content" itemprop="text">
+
+                    <ul>
+                        <li>
+                            <a asp-controller="Insurances" asp-action="Index" class="aioseop-link">Insurance list</a>
+                            <ul>
+                                <li>
+                                    <a asp-controller="InsuranceRegistrations" asp-action="Register" class="aioseop-link">Insurance registrations</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <header class="entry-header">
+                    <h1 class="entry-title" itemprop="headline">Other</h1>
+                </header>
+
+                <div class="entry-content" itemprop="text">
+
+                    <ul>
+                        <li>
+                            <a asp-controller="Home" asp-action="Index" class="aioseop-link">Home</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Testimonials" asp-action="Index" class="aioseop-link">Testimonials</a>
+                            <ul>
+                                <li>
+                                    <a asp-controller="Testimonials" asp-action="Say" class="aioseop-link">Say something</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-controller="Home" asp-action="Contact" class="aioseop-link">Contact us</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

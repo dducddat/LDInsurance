@@ -1,0 +1,95 @@
+﻿@model LDInsurance.Models.Account
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="container-fluid" style="height:610px">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a asp-controller="Accounts" asp-action="Index" class="list-group-item list-group-item-action"><i class="fas fa-user"></i> Profile</a>
+                <a asp-controller="Vehicles" asp-action="Index" class="list-group-item list-group-item-action"><i class="fa fa-car"></i> Vehicles</a>
+                <a asp-controller="InsuranceRegistrations" asp-action="Index" class="list-group-item list-group-item-action"><i class="fas fa-file-alt"></i> Insurances</a>
+                <a asp-controller="Reports" asp-action="Index" class="list-group-item list-group-item-action"><i class="fas fa-clipboard-check"></i> Reports</a>
+                <a asp-controller="TransactionHistories" asp-action="Index" class="list-group-item list-group-item-action"><i class="fas fa-money-check-alt"></i> Transaction Histories</a>
+                <a href="#" data-toggle="modal" data-target="#logoutModal" class="list-group-item list-group-item-action"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="margin:0 auto; color:green; font-size:20px; text-align:center">You can change information</div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form asp-action="Edit" style="font-size:20px">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" asp-for="ID" />
+                                <div class="form-group row">
+                                    <label asp-for="Name" class="col-2 col-form-label"></label>
+                                    <div class="col-10">
+                                        <input asp-for="Name" class="form-control" />
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label asp-for="Phone" class="col-2 col-form-label"></label>
+                                    <div class="col-10">
+                                        <input asp-for="Phone" class="form-control" />
+                                        <span asp-validation-for="Phone" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label asp-for="SSN" class="col-2 col-form-label"></label>
+                                    <div class="col-10">
+                                        <input asp-for="SSN" class="form-control" />
+                                        <span asp-validation-for="SSN" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" asp-for="Username" class="form-control" />
+                                    <span asp-validation-for="Username" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" asp-for="Password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="offset-2 col-8">
+                                        <input type="submit" value="Update" class="btn btn-primary" style="background-color: greenyellow; color: green; border-color: greenyellow" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">You want to logout ?</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">Wish you a good day ♥</div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                    <a class="btn btn-primary" style="background-color: greenyellow; border-color:greenyellow; color:green" asp-area="" asp-controller="Accounts" asp-action="Logout">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

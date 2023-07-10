@@ -1,0 +1,61 @@
+﻿@model LDInsurance.Models.TransactionHistory
+
+@{
+    ViewData["Title"] = "Pay";
+    Dictionary<int, int> priceList = ViewBag.PriceList as Dictionary<int, int>;
+}
+
+
+<div class="container-fluid" style="height: 610px">
+    <div class="col-5" style="margin:0 auto; height: 50px">
+        <p style="text-align:center; font-size:30px; color: forestgreen">Online payment</p>
+    </div>
+    <div class="col-3" style="margin:0 auto; height: 420px; border: solid 3px; border-color: greenyellow; padding-top:20px">
+        <div class="col-11" style="margin:0 auto">
+            <div style="margin:0 auto; color:green; font-size:20px; text-align:center">Please Enter Your Card</div>
+            <form asp-action="Pay">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <br />
+                <p style="font-size:20px; color: green">Choose your bank</p>
+                <select name="cars" id="cars">
+                    <option value="vietcombank">Vietcombank</option>
+                    <option value="dongabank">Dong A Bank</option>
+                    <option value="techcombank">Techcombank</option>
+                    <option value="sacombank">Sacombank</option>
+                </select>
+                <div class="form-group">
+                    <br />
+                    <input asp-for="Card" class="form-control" placeholder="Card number" required />
+                    <span asp-validation-for="Card" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    Registered insurance
+                    <select asp-for="InsuranceRegistrationID" class="form-control" asp-items="ViewBag.InsuranceRegistrationID"></select>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Price" class="form-control" readonly />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Pay" class="btn btn-danger nav-link" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var lst = @Html.Raw(Json.Serialize(priceList));
+
+            var id = $("#InsuranceRegistrationID").val();
+            $("#Price").val(lst[id]);
+
+            $("#InsuranceRegistrationID").change(function () {
+                var id = $(this).val();
+                $("#Price").val(lst[id]);
+            });
+        });
+    </script>
+}

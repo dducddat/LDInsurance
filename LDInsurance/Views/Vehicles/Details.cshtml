@@ -1,0 +1,52 @@
+﻿@model LDInsurance.Models.Vehicle
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container-fluid" style="height:610px">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Details</h4>
+            <p class="card-description">Vehicle</p>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th scope="row">OwnerName</th>
+                        <td>@Html.DisplayFor(model => model.OwnerName)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Name</th>
+                        <td> @Html.DisplayFor(model => model.Name)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">VehicleType</th>
+                        <td>@Html.DisplayFor(model => model.VehicleType.Name) @Html.DisplayFor(model => model.VehicleType.Type)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Model</th>
+                        <td> @Html.DisplayFor(model => model.Model)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Version</th>
+                        <td>@Html.DisplayFor(model => model.Version)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Rate</th>
+                        <td>@Html.DisplayFor(model => model.Rate)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">VehicleNumber</th>
+                        <td>@Html.DisplayFor(model => model.VehicleNumber)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="card-footer" style="text-align:right">
+            <a asp-controller="InsuranceRegistrations" asp-action="Register" class="btn btn-danger">
+                <span class="text">Register</span>
+            </a>
+        </div>
+    </div>
+</div>

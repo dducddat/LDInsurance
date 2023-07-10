@@ -1,0 +1,84 @@
+﻿@model LDInsurance.Models.Account
+
+@{
+    ViewData["Title"] = "ChangePass";
+}
+
+
+<div class="container-fluid" style="height:610px">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a asp-controller="Accounts" asp-action="Index" class="list-group-item list-group-item-action"><i class="fas fa-user"></i> Profile</a>
+                <a asp-controller="Vehicles" asp-action="Index" class="list-group-item list-group-item-action"><i class="fa fa-car"></i> Vehicles</a>
+                <a asp-controller="InsuranceRegistrations" asp-action="Index" class="list-group-item list-group-item-action"><i class="fas fa-file-alt"></i> Insurances</a>
+                <a asp-controller="Reports" asp-action="Index" class="list-group-item list-group-item-action"><i class="fas fa-clipboard-check"></i> Reports</a>
+                <a asp-controller="TransactionHistories" asp-action="Index" class="list-group-item list-group-item-action"><i class="fas fa-money-check-alt"></i> Transaction Histories</a>
+                <a href="#" data-toggle="modal" data-target="#logoutModal" class="list-group-item list-group-item-action"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p style="text-align:center; font-size:30px; color: forestgreen">Change Password</p>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert-danger hide" style="text-align:center">@ViewBag.Message</div>
+                                    <form asp-action="ChangePass" style="font-size:20px">
+                                        <div class="form-group row">
+                                            <label for="name" class="col-2 col-form-label">Old password:</label>
+                                            <div class="col-10">
+                                                <input type="password" name="Old" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="name" class="col-2 col-form-label">New password:</label>
+                                            <div class="col-10">
+                                                <input type="password" name="New" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="name" class="col-2 col-form-label">Confirm new password:</label>
+                                            <div class="col-10">
+                                                <input type="password" name="Newconfirm" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="offset-2 col-4">
+                                                <button type="submit" class="btn btn-block" style="background-color:greenyellow; color:green"><i class="fa fa-key"></i> Change Password</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">You want to logout ?</h5>
+                                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">Wish you a good day ♥</div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                            <a class="btn btn-primary" style="background-color: greenyellow; border-color:greenyellow; color:green" asp-area="" asp-controller="Accounts" asp-action="Logout">Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+﻿@model IEnumerable<LDInsurance.Models.Insurance>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <div class="card">
+        <div class="card-header"  style="background-color: greenyellow; font-size: 25px; color: green"><b>Insurance List</b></div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            <a class="nav-link dropdown-toggle" href="#" id="mydropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Insurances
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-action="Index" asp-route-id="-1">All</a>
+                                @foreach (InsuranceType type in ViewBag.listType)
+                                {
+                                    <a class="dropdown-item" asp-action="Index" asp-route-id="@type.ID">@type.Name</a>
+                                }
+                            </div>
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Period
+                        </th>
+                        <td>
+                            <a style="font-size: 30px" asp-controller="InsuranceRegistrations" asp-action="Register"><i class="fas fa-file-contract"></i></a>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price) VNĐ
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Period) Months
+                            </td>
+                            <th>
+                                <a asp-action="Details" asp-route-id="@item.ID"><i class="fas fa-eye"></i></a>
+                            </th>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <h2 style="color:green">1. Civil insurance</h2>
+    <h3>Oto:</h3>
+    <p style="font-size: 20px">- Civil Liability Insurance is a type of civil liability insurance for damage to property, body and life of a third party caused by the fault of the vehicle owner (the insured).</p>
+    <br />
+    <img src="~/img/insurance1.jpg" height="450px" />
+    <br />
+    <p style="font-size: 20px">- Civil insurance is a compulsory insurance for car owners when participating in traffic. According to Decree 46 in 2016, if you do not carry CIT insurance, car owners will be fined 400,000 - 600,000 VND. </p>
+    <h4>» Insured object:</h4>
+    <p style="font-size: 20px">- Driver – includes: vehicle owner (individual/organization) or the person assigned by the vehicle owner to legally possess, use, and operate the vehicle. </p>
+    <h4>» Covered coverage:</h4>
+    <p style="font-size: 20px">- Damage to property, body and life to a third party caused by the insured's fault, occurring in the territory of Vietnam. </p>
+    <br />
+    <img src="~/img/insurance2.png" height="450px" />
+    <h4>» Insurance compensation rate:</h4>
+    <p style="font-size: 20px">- Human damage: 100,000,000 VND/person/accident </p>
+    <p style="font-size: 20px">- Property damage: 100,000,000 VND/accident</p>
+    <h3>Motorcycle:</h3>
+    <h4>» Insured object:</h4>
+    <p style="font-size: 20px">- Insurance to indemnify people in accidents caused by car owners. The insurance will compensate financially for the loss of life and property to the accident victim in accordance with the law.</p>
+    <img src="~/img/insurance3.jpg" height="450px" />
+    <h2 style="color:green">2. Material insurance</h2>
+    <h3>Oto:</h3>
+    <p style="font-size: 20px">- In order to increase the coverage of car physical insurance, insurance companies often offer upgraded car insurance product packages such as:</p>
+    <img src="~/img/insurance4.jpg" height="450px" />
+    <h4>» Parts theft insurance:</h4>
+    <p style="font-size: 20px">- Parts theft insurance is a type of car owner insurance that will be compensated in case of loss due to stolen car parts. Normally the limit will be 1 time per department within 1 year.</p>
+    <p style="font-size: 20px">- The cost of parts theft insurance usually adds 10-20% of the normal auto physical insurance premium.</p>
+    <h4>» Flooded car insurance – hydro-damage:</h4>
+    <p style="font-size: 20px">- Flooded car insurance is a type of car insurance that will be compensated when the vehicle is damaged due to the vehicle driving, parking, or parking in a flooded area. However, it should be noted that this insurance will not compensate for the case of a flooded vehicle that has stalled or stopped working, but the driver still intentionally starts the engine again leading to loss. </p>
+    <p style="font-size: 20px">- The price of water damage insurance usually adds from 8 to 12% of the normal auto insurance premium. </p>
+    <h4>» Car service interruption insurance:</h4>
+    <p style="font-size: 20px">- Vehicle interruption insurance is insurance for car owners to be paid more for car rental due to an accident that is detained by the authorities or the repair period is covered by the insurance. </p>
+    <h4>» Some other extended insurance products:</h4>
+    <p style="font-size: 20px">- Limited liability insurance</p>
+    <p style="font-size: 20px">- Insurance for cars without official circulation permits</p>
+    <p style="font-size: 20px">- Insurance for practice cars</p>
+    <p style="font-size: 20px">- Insurance for duty free vehicles</p>
+    <p style="font-size: 20px">- Insurance for damage occurring outside the territory of Vietnam </p>
+    <h3>Motorcycle:</h3>
+    <p style="font-size: 20px">- The object is the owner's motorbike. If you do not buy this insurance package, when an accident occurs, the material cost of the vehicle will not be compensated.</p>
+    <p style="font-size: 20px">- This is voluntary insurance, the car owner can decide to buy it or not. </p>
+    <h2 style="color:green">3. Accident insurance</h2>
+    <h3>Oto:</h3>
+    <p style="font-size: 20px">- Car occupant accident insurance is a type of insurance for bodily harm, loss of life of the driver and passengers due to an accident when getting on and off the bus, sitting on the vehicle, crossing the bridge/boat/ferry …</p>
+    <img src="~/img/insurance5.jpg" height="450px" />
+    <h4>» Insured object:</h4>
+    <p style="font-size: 20px">- Driver and passenger ride</p>
+    <h4>» Covered coverage</h4>
+    <p style="font-size: 20px">- Loss of body, life of the insured due to an accident when getting in and out of the car, sitting on the car, crossing the bridge / ferry / ferry...</p>
+    <h4>» Insurance compensation rate:</h4>
+    <p style="font-size: 20px">- The insured person dies due to an accident: The entire insurance amount is paid</p>
+    <p style="font-size: 20px">- The insured person is permanently or temporarily disabled due to an accident: Paid as a percentage of the sum insured </p>
+
+
+</div>

@@ -1,0 +1,67 @@
+﻿@model LDInsurance.Models.TransactionHistory
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+
+    <div class="col-md-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Details</h4>
+                <p class="card-description">TransactionHistory </p>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.Account)                     
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Account.Name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.Insurance)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Insurance.ID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.Card)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Card)  
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                @Html.DisplayNameFor(model => model.Date)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(model => model.Date)
+                             </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Price)</th>
+                            <td>@Html.DisplayFor(model => model.Price)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Status)</th>
+                            <td>@Html.DisplayFor(model => model.Status)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a asp-action="Index" class="btn btn-danger">
+                    <span class="text">Cancel</span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>

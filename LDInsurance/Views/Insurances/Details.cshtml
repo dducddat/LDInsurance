@@ -1,0 +1,42 @@
+﻿@model LDInsurance.Models.Insurance
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container-fluid" style="height:610px"   >
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Details</h4>
+            <p class="card-description">@Html.DisplayFor(model => model.Name)</p>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th scope="row">Insurance Type</th>
+                        <td>@Html.DisplayFor(model => model.InsuranceType.Name)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Vehicle Type</th>
+                        <td>@Html.DisplayFor(model => model.VehicleType.Type) @Html.DisplayFor(model => model.VehicleType.Name)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Price</th>
+                        <td>@Html.DisplayFor(model => model.Price) VND</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Period</th>
+                        <td>@Html.DisplayFor(model => model.Period) Months</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+        <div class="card-footer" style="text-align:right">
+            <a asp-controller="InsuranceRegistrations" asp-action="Register" class="btn btn-danger">
+                <span class="text">Take it</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
